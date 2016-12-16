@@ -1,0 +1,2 @@
+Top Trumps is a simple card game which involves some basic numbers and chance.
+It was invented in 1968 and comes in a wide variety of themes.
