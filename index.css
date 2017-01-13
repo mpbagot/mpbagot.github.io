@@ -1,20 +1,73 @@
-#h-banner {
-	background-color: silver;
+.h-banner {
+	top: 0px;
+	left: 0px;
+	position: fixed;
+	background-color: rgb(0, 212, 138);
 	text-align: center;
-	padding: 5px;
+	width: 100%;
+	height: 20%;
+	z-index: 990;
 }
-h2 {
+#h-banner {
+	height: 22%;
+	background-color: rgb(0, 182, 108);
+}
+.footer {
+	position: absolute;
+	margin-top: 10px;
+	left: 0px;
+	background-color: rgb(0, 212, 138);
+	z-index: 990;
+	width: 100%;
+	height: 20%;
+}
+#logo {
+	height: 90%;
+	width: 10%;
+	left: 0px;
+	padding: 5px;
+	margin: 0px;
+	position: absolute;
+}
+button {
+	position: absolute;
+	right: 3%;
+	width: 10%;
+	height: 35%;
+}
+#login {
+	top: 7%;
+}
+#signout {
+	top: 52%;
+}
+h1 {
+	padding-top: 1%;
 	text-align: center;
-	font-size: 35px;
+	font-size: 75px;
 	margin: 0px;
 }
 body {
-	font-family: Comic Sans MS;
 	background-color: lightblue;
+}
+.blurb {
+	width: 25%;
+	position: absolute;
+	text-align: center;
+	padding-right: 50px;
+	padding-left: 50px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+#right-info {
+	right: 0px;
+}
+#mid-info {
 }
 p {
 	margin: 0px;
-	font-size: 15px;
+	font-size: 18px;
+	color: black;
 }
 #body-content {
 	background-color: silver;
@@ -25,9 +78,21 @@ table {
 }
 td {
 	border: 1px solid white;
+	width:50%;
 	text-align: center;
+}
+.footer-table {
+	width: 30%;
+}
+.footer-td {
+	border: 0px solid black;
 }
 a {
 	text-align: center;
 	padding-top: 10px;
+	text-decoration: none;
+	color: black;
+}
+img {
+	width: 180px;
 }
