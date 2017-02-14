@@ -12,8 +12,16 @@
 	height: 22%;
 	background-color: rgb(0, 182, 108);
 }
+#top-image {
+	position: absolute;
+	top: 22%;
+	width: 100%;
+	height: 75%;
+	left: 0px;
+}
 .footer {
 	position: absolute;
+	top: 317%;
 	margin-top: 10px;
 	left: 0px;
 	background-color: rgb(0, 212, 138);
@@ -61,6 +69,7 @@ body {
 }
 #right-info {
 	right: 0px;
+	top: 40%;
 }
 #mid-info {
 }
@@ -70,15 +79,22 @@ p {
 	color: black;
 }
 #body-content {
-	background-color: silver;
+	z-index: 10;
+	position: absolute;
+	left: 0px;
+	height: 227%;
+	width: 100%;
+	top: 97%;
 }
 table {
-	margin-top: 20px;
 	width: 100%;
 }
+#body-table {
+	height: 98%;
+}
 td {
-	border: 1px solid white;
-	width:50%;
+	width:33%;
+	height: 33%;
 	text-align: center;
 }
 .footer-table {
