@@ -6,4 +6,13 @@ app = Flask(__name__)
 def index():
 	return render_template('index.html')
 
-app.run(port=8888)
+@app.route('/logsig', methods=['POST'])
+def logsig():
+	print(request.form)
+	if 'login' in request.form:
+		return ('login')
+	return 'signup'
+
+#with app.test_request_context():
+#	print(url_for('static', filename='css/style.css'))
+app.run(host='0.0.0.0', port=8888)
