@@ -1,4 +1,4 @@
-import sqlite3
+import db
 from flask import *
 app = Flask(__name__)
 
@@ -8,11 +8,14 @@ def index():
 
 @app.route('/logsig', methods=['POST'])
 def logsig():
-	print(request.form)
 	if 'login' in request.form:
-		return ('login')
-	return 'signup'
+		return render_template('logsig_template.html')
+	return render_template('logsig_template.html')
 
-#with app.test_request_context():
-#	print(url_for('static', filename='css/style.css'))
+@app.route('/<pagename>')
+def content_handler(pagename):
+	pagename = pagename.split('.')[0]
+	dc = {'pacrpg':'Pepper & Carrot RPG', 'ghssound':'GHS Soundboard', 'blog':'SDD Design Subsite'}
+	return render_template('content_template.html', title=dc[pagename])
+
 app.run(host='0.0.0.0', port=8888)
