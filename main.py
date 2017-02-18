@@ -18,4 +18,4 @@ def content_handler(pagename):
 	dc = {'pacrpg':'Pepper & Carrot RPG', 'ghssound':'GHS Soundboard', 'blog':'SDD Design Subsite'}
 	return render_template('content_template.html', title=dc[pagename])
 
-app.run(host='0.0.0.0', port=8888)
+app.run(host='0.0.0.0', port=8888, threaded=True)

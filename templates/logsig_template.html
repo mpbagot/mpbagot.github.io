@@ -7,8 +7,10 @@
 <body>
   <div class="h-banner" id="h-banner">
     <div class="h-banner">
-      <img src="static/img/logo.png" id="logo">
-      <h1>FlashFire Projects Site</h1>
+      <a href="/">
+        <img src="static/img/logo.png" id="logo">
+        <h1>FlashFire Projects Site</h1>
+      </a>
       <form method="post" action="/logsig">
         <button id="login" name="login">
           Login
@@ -16,15 +18,22 @@
         <button id="signout" name="signup">
           Sign Up
         </button>
-      </form>
+
+      </div>
     </div>
-  </div>
-  <div>
-    {%if login%}
-      
-    {%endif%}
-    {%else%}
-      <p>jgrb</p>
-    {%endelse%}
+    <div style="position:absolute;top:22%;">
+      {%if login%}
+      <!-- TODO Centre everything here -->
+        <p>login page</p>
+        <input type="text" placeholder="Username" name="username"></input>
+        <input type="password" placeholder="Password" name="password"></input>
+        <button>Sign In</input>
+      {%endif%}
+      {%if not login%}
+        <p>signup</p>
+        <input type="password" placeholder="Confirm Password" name="confirm_password">
+        </input>
+      {%endif%}
+    </form>
   </div>
 </body>

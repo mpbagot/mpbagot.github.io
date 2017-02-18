@@ -7,8 +7,10 @@
 <body>
   <div class="h-banner" id="h-banner">
     <div class="h-banner">
-      <img src="static/img/logo.png" id="logo">
-      <h1>FlashFire Projects Site</h1>
+      <a href="/">
+        <img src="static/img/logo.png" id="logo">
+        <h1>FlashFire Projects Site</h1>
+      </a>
       <form method="post" action="/logsig">
         <button id="login" name="login">
           Login
@@ -18,5 +20,8 @@
         </button>
       </form>
     </div>
+  </div>
+  <div style="position:absolute;top:22%;">
+    <h2 style="margin-left:65%">{{ title }}</h2>
   </div>
 </body>
