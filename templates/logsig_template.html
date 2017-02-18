@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+  <title>{{ title }}</title>
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Amatic+SC" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/index.css" type="text/css">
+</head>
+<body>
+  <div class="h-banner" id="h-banner">
+    <div class="h-banner">
+      <img src="static/img/logo.png" id="logo">
+      <h1>FlashFire Projects Site</h1>
+      <form method="post" action="/logsig">
+        <button id="login" name="login">
+          Login
+        </button>
+        <button id="signout" name="signup">
+          Sign Up
+        </button>
+      </form>
+    </div>
+  </div>
+  <div>
+    {%if login%}
+      
+    {%endif%}
+    {%else%}
+      <p>jgrb</p>
+    {%endelse%}
+  </div>
+</body>

@@ -9,8 +9,8 @@ def index():
 @app.route('/logsig', methods=['POST'])
 def logsig():
 	if 'login' in request.form:
-		return render_template('logsig_template.html')
-	return render_template('logsig_template.html')
+		return render_template('logsig_template.html', login=True, title="Login")
+	return render_template('logsig_template.html', login=False, title="Sign-Up")
 
 @app.route('/<pagename>')
 def content_handler(pagename):
