@@ -2,7 +2,7 @@
 	top: 0px;
 	left: 0px;
 	position: fixed;
-	background-color: rgb(0, 212, 138);
+	background-color: lightsteelblue;
 	text-align: center;
 	width: 100%;
 	height: 20%;
@@ -10,7 +10,7 @@
 }
 #h-banner {
 	height: 22%;
-	background-color: rgb(0, 182, 108);
+	background-color: steelblue;
 }
 #top-image {
 	position: absolute;
@@ -24,7 +24,7 @@
 	top: 317%;
 	margin-top: 10px;
 	left: 0px;
-	background-color: rgb(0, 212, 138);
+	background-color: lightsteelblue;
 	z-index: 990;
 	width: 100%;
 	height: 20%;
@@ -49,6 +49,9 @@ button {
 #signout {
 	top: 52%;
 }
+#logout {
+	top: 30%;
+}
 h1 {
 	padding-top: 1%;
 	text-align: center;
@@ -56,7 +59,7 @@ h1 {
 	margin: 0px;
 }
 body {
-	background-color: lightblue;
+	background-color: rgb(229,229,229);
 	font-family: Comfortaa;
 }
 .blurb {

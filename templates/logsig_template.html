@@ -1,38 +1,69 @@
 <!DOCTYPE html>
 <head>
   <title>{{ title }}</title>
+  <link rel="icon" href="favicon.png">
   <link href="https://fonts.googleapis.com/css?family=Comfortaa|Amatic+SC" rel="stylesheet">
   <link rel="stylesheet" href="static/css/index.css" type="text/css">
+  <link rel="stylesheet" href="static/css/logsig.css" text="text/css">
+  <script>
+    String.prototype.hashCode = function(){
+    	var hash = 0;
+    	if (this.length == 0) return hash;
+    	for (i = 0; i < this.length; i++) {
+    		char = this.charCodeAt(i);
+    		hash = ((hash<<5)-hash)+char;
+    		hash = hash & hash; // Convert to 32bit integer
+    	}
+    	return hash;
+    }
+
+    function hashForm(form, is_signup) {
+      if (is_signup == "False"){
+        form['confirm_password'].value = form['confirm_password'].value.hashCode();
+      }
+      form['password'].value = form['password'].value.hashCode();
+
+      return true;
+    }
+  </script>
 </head>
 <body>
   <div class="h-banner" id="h-banner">
     <div class="h-banner">
       <a href="/">
         <img src="static/img/logo.png" id="logo">
-        <h1>FlashFire Projects Site</h1>
+        <h1>ColdSteel Projects Site</h1>
       </a>
-      <form method="post" action="/logsig">
+      <form method="post" action="/logsig" onsubmit="return hashForm(this, '{{login}}');">
+        {%if not logged_in%}
         <button id="login" name="login">
           Login
         </button>
         <button id="signout" name="signup">
           Sign Up
         </button>
+        {%endif%}
+        {%if logged_in%}
+        <button id="logout" name="logout">
+          Logout
+        </button>
+        {%endif%}
 
       </div>
     </div>
-    <div style="position:absolute;top:22%;">
+    <div style="margin: 15% auto;padding: 10px;">
+      {%if error%}<h3 style="color:red;text-align:center;">Error! {{error}}</h3>{%endif%}
       {%if login%}
-      <!-- TODO Centre everything here -->
-        <p>login page</p>
-        <input type="text" placeholder="Username" name="username"></input>
-        <input type="password" placeholder="Password" name="password"></input>
-        <button>Sign In</input>
+        <p><input type="text" placeholder="Username" name="username"></input></p>
+        <p><input type="password" placeholder="Password" name="password" id="password"></input></p>
+        <p><button class="submit">Sign In</input></p>
+
       {%endif%}
       {%if not login%}
-        <p>signup</p>
-        <input type="password" placeholder="Confirm Password" name="confirm_password">
-        </input>
+        <p><input type="text" placeholder="Username" name="username"></input></p>
+        <p><input type="password" placeholder="Password" name="password" id="password"></input></p>
+        <p><input type="password" placeholder="Confirm Password" name="confirm_password" id="confirm_password"></input></p>
+        <p><button class="submit">Sign Up</input></p>
       {%endif%}
     </form>
   </div>

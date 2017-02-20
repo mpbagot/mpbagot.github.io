@@ -3,25 +3,34 @@
   <head>
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Amatic+SC" rel="stylesheet">
     <link rel="stylesheet" href="static/css/index.css" type="text/css">
-    <title>FlashFire Projects</title>
+    <link rel="icon" href="favicon.png">
+    <title>ColdSteel Projects</title>
   </head>
   <body>
     <div class="h-banner" id="h-banner">
       <div class="h-banner">
         <img src="static/img/logo.png" id="logo">
-        <h1>FlashFire Projects Site</h1>
+        <h1>ColdSteel Projects Site</h1>
         <form method="post" action="/logsig">
+          {%if not logged_in%}
           <button id="login" name="login">
             Login
           </button>
           <button id="signout" name="signup">
             Sign Up
           </button>
+          {%endif%}
+          {%if logged_in%}
+          <button id="logout" name="logout">
+            Logout
+          </button>
+          {%endif%}
         </form>
       </div>
     </div>
     <div>
       <img src="static/top-image.png" id="top-image">
+      <h2 style="font-size:35px;color: steelblue;text-align:right;margin:15% 10%;font-weight:bold;">ColdSteel</h2>
       <p class="blurb" id="right-info">
       This website is a simple website I put together to act as both a showcase of my web design abilities and to allow people to
       play some basic games which I have created with HTML and Javascript. The website allows you to save progress and leaderboard
@@ -30,7 +39,7 @@
     </div>
     <div id="body-content">
       <table id="body-table">
-        <tr style="background-color: lightblue;">
+        <tr>
           <td colspan="2">
             <h3 style="text-align:left;padding-left:5%;">
             GHS Soundboard
@@ -47,7 +56,7 @@
             <img alt="GHS Soundboard" src="static/img/p1.png">
           </td>
         </tr>
-        <tr style="background-color: rgb(139, 224, 194);">
+        <tr style="background-color: rgb(240, 240, 240)">
           <td colspan="3">
             <div>
               <img alt="PepperCarrot-RPG-screenshot" src="static/img/p2.png" style="position: absolute;left:5%;">
@@ -64,21 +73,20 @@
             </div>
           </td>
         </tr>
-        <tr style="background-color: lightblue;">
+        <tr>
           <td colspan="2">
             <h3 style="text-align:left;padding-left:5%;">
-            SDD Design Blog
+            Project 3
             </h3>
-            <p style="text-align:left;width: 70%;padding-left:5%;">A subsite for holding my SDD Design and Process Logs. Created
-            using FeatherJS, a NodeJS library.</p>
-            <a href="http://tick-it-media.tk:3030">
+            <p style="text-align:left;width: 70%;padding-left:5%;">An unknown project.</p>
+            <a href="proj3_STANDIN.html">
               <h4 style="position: absolute;left: 10%;">
-              Read More...
+              Play Now!
               </h4>
             </a>
           </td>
           <td>
-            <img alt="SDD Project Blog" src="static/img/p3.png">
+            <img alt="Project 3" src="static/img/p3.png">
           </td>
         </tr>
       </table>
@@ -111,8 +119,8 @@
         </tr>
         <tr>
           <td>
-            <a href="http://tick-it-media:3030">
-              SDD Project Blog
+            <a href="proj3.html">
+              Project 3
             </a>
           </td>
         </tr>

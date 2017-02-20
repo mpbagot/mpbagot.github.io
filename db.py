@@ -20,7 +20,7 @@ class Log:
         '''
         Add the log to the 'posts' table
         '''
-        date = datetime.now()
+        date = dt.now()
         cur.execute('''INSERT INTO posts (userid, title, message, created, image) VALUES (?, ?, ?, ?, ?)''',
                                             (self.user.id, self.title, self.text, date, self.image))
         conn.commit()
@@ -32,7 +32,7 @@ class Log:
         '''
         Update the modified data in the 'posts' table
         '''
-        self.date = datetime.now()
+        self.date = dt.now()
         cur.execute('''UPDATE posts SET created = ?, title = ? WHERE id = ?''', (self.date, self.title, self.id))
         conn.commit()
 
@@ -60,8 +60,6 @@ class User:
         Add a new user to the 'users' table in the database
         '''
         cur.execute("SELECT * FROM users WHERE username = ?", (self.username,))
-        for row in cur:
-            raise Exception("User {} already Exists!!!".format(self.username))
         cur.execute('''INSERT INTO users (username, password, pcsave) VALUES (?, ?, ?)''', (self.username, self.password, self.save))
         conn.commit()
         self.id = cur.lastrowid
