@@ -1,0 +1,35 @@
+td {
+  background-color: lightblue;
+  width:17%;
+  text-align: center;
+  height: 30px;
+}
+td a:focus{
+  background-color: lightskyblue;
+}
+.header {
+  width: 99%;
+  position:fixed;
+  background-color: white;
+  top:0;
+  border-bottom: 20px solid lightsteelblue;
+}
+h1 {
+  text-align:center;
+}
+#body_content {
+  margin: 180px auto 0 auto;
+  text-align: left;
+  width: 40%;
+}
+body {
+  font-family: 'Sarpanch', sans-serif;
+
+}
+a {
+  text-decoration: none;
+  color: black;
+  display:block;
+  height:100%;
+  padding:4%;
+}
