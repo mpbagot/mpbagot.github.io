@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IPT & SDD Design Blog</title>
+  <link rel="stylesheet" href="static/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Sarpanch" rel="stylesheet">
+</head>
+<body>
+  <div class="header">
+    <h1>IPT & SDD Design Blog</h1>
+    <table>
+      <tr>
+        <td style="background-color:lightskyblue">
+          Home
+        </td>
+        {%for topic in topics%}
+        <td>
+          <a href="/topic/{{topic.id}}">{{topic.title}}: {{topic.subtitle}}</a>
+        </td>
+        {%endfor%}
+      </tr>
+    </table>
+  </div>
+  <div id="index_body_content">
+    <table>
+      <tr>
+        {%for topic in topics%}
+        <td class="topic">
+          <a href="topic/{{topic.id}}">
+            <h3>{{topic.title}}: {{topic.subtitle}}</h3>
+            {%for para in topic.post.text%}
+              {%if topic.post.text.index(para) == 0%}
+                <p>{{para}}</p>
+              {%endif%}
+            {%endfor%}
+          </a>
+        </td>
+        {%endfor%}
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

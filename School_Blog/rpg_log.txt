@@ -1,0 +1,71 @@
+date|2017-01-31
+title|Experiments
+topic|1
+image|None
+text|['Today was a day of experimentation. Before I attempt the task, I am deciding upon a few features to include within it. The first task was splitting the game into initialisation and game loop code. With this, it allowed changes to be made to either one individually, without risking damage to the other.','I decided upon a few core features. The map will be created of an array of \'area nodes\' which house the important data about that area within them. Data such as an enemy list, description and movable directions.', 'Within a new file, I created a World class which houses the code for world generation and description generation. I implemented a basic world which is simply a 2D array of area nodes, generated to connect to each other. It has some bugs in that some paths can only be travelled one way and occasionally, the player can become completely stranded in one node.']
+...
+date|2017-02-02
+title|Saving and Loading
+topic|1
+image|None
+text|['After some further experimentation with Player code and Inventory code, I realised that  the current game \'engine\' had no way to store the data of all the objects in a string  format, required to save and load the game.','So, I began the lengthy task of rewriting everything I had done so far in order to simplify the save string generation and loading. Additionally, a new save function was added to the main game, as well as a load function to continue from a previous save. The save function is currently  mapped to a \'save\' command. It simply gets pushed to another thread and run in the background so as not to interrupt the player\'s gameplay.','Additionally, some stand-in Enemy objects are now spawned in some Area Nodes. There HP and Attack is randomised based on the world\'s difficulty scale, set by the player when they start a new game.']
+...
+date|2017-02-03
+title|Items and Luck
+topic|1
+image|None
+text|['Since yesterday, I created a simple Item class which can store important data about an Item such as it\'s quantity in the inventory, health regeneration factor, defence and attack factors and whether or not it can be eaten.','Using this system, Items will be added to an external hidden Item dictionary file and added at runtime to the game. This even allows for limited modding capabilities for players.','Additionally, when the user starts a new game, the player is given a new inventory with a few randomised items. These could be insanely over-powered or, simply just a couple of gold. This allows for some level of difficulty to be added without having to have many levels of world generation difficulty.']
+...
+date|2017-02-04
+title|Hosting over LAN!
+topic|1
+image|None
+text|['Basic LAN play integration has begun, the player now has the opportunity to, at any time, host their current game over a LAN. This allows up to 5 other players to join the world and can then play in a co-op or competitive environment.','I\'ve had to spend most of today attempting to learn the basics of the sockets library in Python 3. For those who don\'t know, the sockets library is a module, included with the Python 3 standard library which allows for basic low-level network communication between two computers, in a client-server fashion.','After learning how to use it, I ran across a problem of allowing the hosting player to continue to play after hosting. The hosting currently creates issues, freezing the gameplay whilst a new player joins, and immediately after they join, they are unable to receive the result of their command.','Perhaps a dedicated server would be easier??']
+...
+date|2017-02-05
+title|Actually, it's a Dedicated Server and Client. :'(
+topic|1
+image|None
+text|['After pondering the issues of yesterday overnight, as well as wrestling to solve some of them today, I decided upon the far simpler solution of simply splitting the game into a dedicated server and a dedicated client/singleplayer.','Within an hour of choosing this style of solution, I had a basically working client and server. However from all of this a new issue has arisen. I have only now discovered that the sockets library is not very good at connecting using a computer\'s hostname. Instead and IP Address is required. However, this has created the issue of attempting to find said IP Address.','It turns out it\'s not as simple as running a single python function and using that. Instead I have resorted to simply parsing the output from a standard ip routing command run on the system shell. This unfortunately, is not cross-platform and requires different parsing on both Unix/Linux and Windows. Additionally, this doesn\'t work through a network proxy.','Hopefully a simpler and more accurate way to determine the computer\'s IP Address can be found so as not to require this dreadful way.']
+...
+date|2017-02-06
+title|Mapping, the only use for Geography
+topic|1
+image|None
+text|['After realising the simplicity of my world generation allowed for a simple way to create maps that can show the nodes as simple squares, showing the paths between them. Using a basic 2D array of \' \' or \'#\' string\'s allows me to iterate and fill in the path gaps and area names.','Unfortunately, due to the design of the server-client system, every command generally needs to be near-duplicated, since the server posts the text back to the client and the singleplayer just displays it. Hopefully I can streamline this, because if code duplication is ever necessary, obviously something something has been done wrong.','Fun Fact: If code has been duplicated in your project, Your probably doing something wrong!']
+...
+date|2017-02-07
+title|English is the *best* language 
+topic|1
+image|None
+text|['I love English. So simple for humans to understand and form, hard as dry Weet-Bix for a computer to understand. But, alas, the woes of English shall come later in the coming weeks.','For now, though a fully working, basic dialoguing engine is now in place in the code. The player can now, *air quotes*talk*air quotes* to NPC\'s that are nearby. I mean if saying anything you want and just being rewarded by having the words:','Basic Test Sentence','appear on the screen is considered conversation. Very fun. Cant wait to start trying to help these people, especially when they cant even understand what I say.']
+...
+date|2017-02-08
+title|Is Salad, Is Good!
+topic|1
+image|None
+text|['Comment Salad!!! After finally actually reading through the task requirements, I realised that code comments are actually marked in the marking guidelines. Kinda stupid if you ask me but whatever pleases the Board of Studies. Though considering that they made as pointless a subject as English, MANDATORY, I\'d say that their judgement is severely impaired.','Nonetheless, an average of every third line is now a comment in the main file, whilst every sixth to seventh line is a comment in most of the other files.','In other, actually important and useful news, a status command was added to allow the player to display their character\'s stats, i.e HP and Co-ordinates, and current inventory contents. This command greatly simplifies finding each other in a multiplayer game since you can get an idea of where you are.','A quick fix was also made to the player generation. Players now receive a small starting amount of Gold to allow them to get some food and supplies. This is not given on the hard difficulty.']
+...
+date|2017-02-09
+title|Optimising, like the Flash! 
+topic|1
+image|None
+text|['After just over a week, I got sick and tired of having to wait over 40 seconds for a new world to generate on my game and 30 seconds to load a pre-existing one. So I just re-wrote the code that generates the world. The world is now stored as a 2D array of \'chunks\'.','Each chunk is an object which contains a 10x10 array of nodes. Using this I can generate a small area around the player, then allow them to play while pushing the rest of the world\'s generation into the background. Unless the player really tries to break it by going as quickly as possible to the edge, it should take them long enough to make it that the world should have already generated.','Using this new generation technique, a new world can be created in approximately 250+-100 milliseconds. This allows the player to begin playing almost immediately, far more enjoyable than waiting a long amount of time to begin. Unfortunately, the world loading still takes the original long amount of time.','On another note, the dialogue AI is able to approximately determine if a sentence is a statement a question, or a conditional statement or conditional question. For example, it can tell that:',' what is your name','is a question, whilst:',' in an alternate reality, what colour would the sky be','is a conditional question. Pretty simple, it was just a simple check for starting word and following words. It is run recursively to check for conjoined sentences such as:',' that is a chicken, and that is a pig']
+...
+date|2017-02-12
+title|The Far Lands..
+topic|1
+image|None
+text|['Oh no!!! Some fringe errors that occur on the fringes (get it?) of the world have broken the world loading! Simple fix, just run a check to ensure that the given chunk is valid in the world\'s array of chunks. Once that was done, I think it fixed the problem, but I can\'t actually check, since it is so rare to occur, might have to force it just to make sure.','Sped up the loading of the world loading as well, just about as quick as the generation, by my testing. I\'ll see if I can optimise it even further, since the full background load is still slower than background generation.']
+...
+date|2017-02-13
+title|What if I don't have the NLTK installed???
+topic|1
+image|None
+text|['Anyway, since all my dialogue AI code uses the Python NLTK (Natural Language ToolKit), and since it\'s a huge dependency, >3GB, I decided to add in some VERY basic fall-back speech statements and questions if the user doesn\'t have the NLTK module installed. Luckily, since I DO have it installed, I can simply work on both parts and check either without just relying on my dodgy first-time correct coding luck.','Using the basic checking, statements and questions can still be determined, but statements can only be randomly responded to. There is a check that if the user uses inappropriate language, then the NPC exclaims: \'Language!\' or if the user insults the NPC then it says a comeback statement. If a question is a pre-set question such as \'who are you\' then it answers it, otherwise the NPC just states that it doesn\'t know.']
+...
+date|2017-02-14
+title|Nearly There..
+topic|1
+image|None
+text|['Some more work was done to the Dialogue AI. It seems to be the current big focus of the project. Hopefully I can finish it soon and get onto some more interesting parts, such as the Trading System. Get pumped!','In the non-NLTK side of things, a few more pre-set statements were added to the list of recognised sentences as well as a few more simple questions.','Now the fun stuff. Using the NLTK, I was able to produce a \'fact\' storing system which allows the AI to determine the topic of a statement and store the value of it in a fact dictionary. When a question is asked, it repeats the process, determining the topic and looking up the value in the fact dictionary. Once this is done, it simply constructs a valid sentence to tell you the fact in plain and grammatically correct English. Easy.','The final step, was simply adding in a synonym scanner. For example, if you tell an npc:',' I own a corgi.','It will store the fact that you own a corgi (a Corgi is a breed of dog, for those who don\'t know). If you then ask it:',' do I own a dog','It will check for dog, not find it then look through synonyms, find the synonym \'corgi\' and still manage to tell you:',' Yes, you do own a dog, a Corgi in fact!','Things are starting to get exciting with this Dialogue Bot.']

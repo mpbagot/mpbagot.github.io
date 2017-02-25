@@ -7,11 +7,19 @@ def logged_in(request):
 	return bool(request.cookies.get('user_id'))
 
 @app.route('/')
-def index():
+def index_handler():
 	return render_template('index.html', logged_in=logged_in(request))
 
+@app.route('/flfrwiki/<pagename>')
+def wiki_content_handler(pagename):
+	return render_template(pagename+'.html', logged_in=logged_in(request))
+
+@app.route('/flfrwiki')
+def wiki_handler():
+	return render_template('wiki_index.html', logged_in=logged_in(request))
+
 @app.route('/logsig', methods=['POST'])
-def logsig():
+def logsig_handler():
 	if 'username' in request.form and request.form['username'] != '':
 		if 'confirm_password' in request.form:
 			passwd = request.form['password']

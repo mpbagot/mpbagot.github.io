@@ -1,0 +1,78 @@
+@keyframes fade_topic {
+  from {background-color: white;}
+  to {background-color: lightgray;}
+}
+@keyframes fade_links {
+  from {background-color: lightblue;}
+  to {background-color: lightskyblue;}
+}
+td {
+  border-radius: 25px 25px 0px 0px;
+  background-color: lightblue;
+  width:17%;
+  text-align: center;
+  height: 30px;
+}
+td a:hover{
+  border-radius: 25px 25px 0px 0px;
+  animation-name: fade_links;
+  animation-duration: 0.5s;
+  background-color: lightskyblue;
+}
+table {
+  width: 100%;
+}
+.topic {
+  background-color: white;
+  width:30%;
+  text-align: center;
+  height: 200px;
+  margin: 4%;
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+}
+.topic a:hover {
+  border-radius: 25px;
+  animation-name: fade_topic;
+  animation-duration: 0.5s;
+  background: lightgrey;
+}
+h3 {
+  margin: 0;
+}
+.header {
+  width: 99%;
+  position:fixed;
+  background-color: white;
+  top:0;
+  border-bottom: 20px solid lightsteelblue;
+}
+h1 {
+  text-align:center;
+}
+#wide_body_content {
+  margin: 180px auto 0 auto;
+  text-align: left;
+  width: 70%;
+}
+#index_body_content {
+  margin: 180px auto 0 auto;
+  text-align: left;
+  width: 95%;
+}
+#body_content {
+  margin: 180px auto 0 auto;
+  text-align: left;
+  width: 50%;
+}
+body {
+  font-family: 'Sarpanch', sans-serif;
+
+}
+a {
+  text-decoration: none;
+  color: black;
+  display:block;
+  height:100%;
+  padding:4%;
+}
