@@ -30,6 +30,9 @@
     <p style="width:80%;margin: 0 auto;">{{a}}</p>
     <p></p>
     {%endfor%}
+    {%if post.image != "None"%}
+      <{{post.image.split('|')[0]}} src="{{post.image.split('|')[1]}}">
+    {%endif%}
   </div>
 </body>
 </html>
