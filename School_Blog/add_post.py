@@ -16,7 +16,7 @@ for log in logs:
         line = line.split('|')
         if line != ['']:
             print(line)
-            dc[line[0]] = line[1]
+            dc[line[0]] = '|'.join(line[1:])
 
     cur.execute('''INSERT INTO posts (topicid, title, message, created, image) VALUES (?, ?, ?, ?, ?)''',
                                         (int(dc.get('topic')), dc.get('title'), str(dc.get('text')), dc.get('date'), dc.get('image')))

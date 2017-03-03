@@ -1,0 +1,23 @@
+date|2017-02-17
+title|Cleaning up the UI
+topic|1
+image|None
+text|['Some basic adjustment\'s were made to the User Interface (Here on referred to as UI). Firstly, the terrible inefficiency of the single column inventory display was terrible, especially for larger inventories. This was now changed to a double column printout.','Additionally, a direction description was added! The player is now told in which directions there are available paths, meaning you don\'t have to check your map every time you move!','The title screen also show\'s the title in a box of equals and \'|\' signs. Once I decide upon a name for the game, I can simply add it in there and the title screen will try it\'s best to make it look nice.']
+...
+date|2017-02-18
+title|Inventory Modifications
+topic|1
+image|None
+text|['An inventory modification screen was added today which allow\'s the player to eat, drop and equip items in their character\'s inventory. Adding the singleplayer implementation of this was quite simple, I just created a similar class to the Dialogue AI but only to interact with the inventory instead of the NPC.','Using that model, I was able to quickly prototype a working Inventory screen. However I quickly realised that using this model, I had no way to interface with the player\'s inventory! As a remedy to this, any changes to the player are returned to the main game loop which then updates the player.','Once I implemented the new system of returned changes, the multiplayer was incredibly easy to implement, simply send and recieve all text instead of printing and reading. :D']
+...
+date|2017-02-21
+title|Squashing all the Bugs!
+topic|1
+image|None
+text|['After all of the new features, I started to notice a few bugs crawling in the code. Noticing this, I decided that some bug removal was in order.','Unfortunately, one small change to a line in the inventory code had broken all eating, every item that could be eaten would result in no restoration of HP, even if it was supposed to. I had simply forgotten to add a return statement in order to return the HP change to the main game.','With the simple fix complete, I went straight for the world generation issue. Luckily, I had commented basically everything so I was able to semi-rubber-duck debug using the comments and I managed to fix the issue.','The final change wasn\'t a bug fix but instead a Player-to-Player chat frame. Using this frame, I should be able to build up a complete player to player chat on server games.']
+...
+date|2017-02-24
+title|Money makes the World go Round
+topic|1
+image|None
+text|['Some say money is the source of human greed. The book \'The Hobbit\' demonstrated this wonderfully, with the character of Thorin becoming corrupted, blinded, by his greed for gold.','(!SPOILERS!) Unfortunately for Thorin, the gold was ultimately his fatal flaw, leading to his death at the end of the story. (!END OF SPOILERS!) Luckily for you, that probably wont happen with the brand new trading system!','Jokes aside. The new trading system has been implemented. This allows the player to walk into small corner stores in each city area.','The store\'s inventory is not saved and loaded so that it can update as the player progresses level. Additionally, the items within the store both scale in cost and power as the player becomes more powerful.','As with the inventory, the changes to the player\'s inventory are only made when the player \'exits\' the store. This allows for simplicity in programming with the client-to-server communication. Overall, one of the easier parts of the game to implement.']
