@@ -3,6 +3,7 @@
 from db import *
 from flask import *
 app = Flask(__name__)
+app.jinja_env.autoescape = False
 
 @app.route('/')
 def index_handler():

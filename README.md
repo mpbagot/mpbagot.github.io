@@ -19,6 +19,4 @@ Using our incredible state-of-the-art* keknology users will experience the lates
 
 # SDD and IPT Design Blog
 
-A simple blog written with NodeJS and FeathersJS. Utilises the REST API for realtime blogging and commenting updates.
-
-*Feathers is an API similar in functionality to Google's Firebase API.
+A simple blog written with Flask. Used to hold all my blog posts for my school work in both Information Processes and Technology, and Software Design and Development.
