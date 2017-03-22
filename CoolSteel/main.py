@@ -70,4 +70,5 @@ def content_handler(pagename):
 	dc = {'pacrpg':'Pepper & Carrot RPG', 'ghssound':'GHS Soundboard', 'proj3_STANDIN':'Project 3'}
 	return render_template('content_template.html', logged_in=logged_in(request), title=dc[pagename])
 
-app.run(host='0.0.0.0', port=6657)#, threaded=True)
+context = ('tick-it-media.tk.crt', 'tick-it-media.tk.key')
+app.run(ssl_context=context, host='0.0.0.0', port=6657)#, threaded=True)
