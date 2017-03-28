@@ -5,29 +5,29 @@
 	background-color: lightsteelblue;
 	text-align: center;
 	width: 100%;
-	height: 20%;
+	height: 165px;
 	z-index: 990;
 }
 #h-banner {
-	height: 22%;
+	height: 173px;
 	background-color: steelblue;
 }
 #top-image {
 	position: absolute;
-	top: 22%;
+	top: 173px;
 	width: 100%;
-	height: 75%;
+	height: 700px;
 	left: 0px;
 }
 .footer {
 	position: absolute;
-	top: 317%;
+	top: 2300px;
 	margin-top: 10px;
 	left: 0px;
 	background-color: lightsteelblue;
 	z-index: 990;
 	width: 100%;
-	height: 20%;
+	height: 180px;
 }
 #logo {
 	height: 90%;
@@ -53,10 +53,11 @@ button {
 	top: 30%;
 }
 h1 {
-	padding-top: 1%;
+	padding-top: 40px;
 	text-align: center;
 	font-size: 75px;
 	margin: 0px;
+	margin-left: -45px;
 }
 body {
 	background-color: rgb(229,229,229);
@@ -73,7 +74,7 @@ body {
 }
 #right-info {
 	right: 0px;
-	top: 40%;
+	top: 270px;
 }
 #mid-info {
 }
@@ -86,15 +87,15 @@ p {
 	z-index: 10;
 	position: absolute;
 	left: 0px;
-	height: 227%;
+	height: 1500px;
 	width: 100%;
-	top: 97%;
+	top: 810px;
 }
 table {
 	width: 100%;
 }
 #body-table {
-	height: 98%;
+	height: 1500px;
 }
 td {
 	width:33%;
