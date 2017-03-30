@@ -1,3 +1,4 @@
+import sys
 import sqlite3
 from datetime import datetime as dt
 
@@ -6,7 +7,7 @@ conn.execute("PRAGMA foreign_keys = ON")
 conn.row_factory = sqlite3.Row
 cur = conn.cursor()
 
-log_file = input('Log File: ')
+log_file = sys.argv[1]
 
 logs = open(log_file).read().split('...')
 
