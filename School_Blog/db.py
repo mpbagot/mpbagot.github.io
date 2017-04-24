@@ -149,9 +149,4 @@ class Topic:
 
 
 if __name__ == "__main__":
-    t = Topic('Topic 1 - SDD', 'Text-based RPG')
-    t.add()
-    t2 = Topic('Topic 1 - IPT', 'Git Shell Tutorial')
-    t2.add()
-    t3 = Topic('Topic 2 - IPT', 'TBA')
-    t3.add()
+    # Add adjustments to anything here!

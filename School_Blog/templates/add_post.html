@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Post</title>
+  <style>
+    h1 {
+      text-align: center;
+    }
+    input {
+      display: block;
+      margin: 0 auto;
+      width: 40%;
+      height: 30px;
+    }
+    textarea {
+      display:block;
+      margin: 0 auto;
+
+    }
+  </style>
+</head>
+<body>
+  <h1>Blog Post Creator</h1>
+  <form method="post" action="/add">
+    <input type="password" placeholder="Confirmation Passcode" name="pass">
+    <input type="text" placeholder="Topic ID" name="topic">
+    <input type="text" placeholder="Date (optional)" name="date">
+    <input type="text" placeholder="Title" name="title">
+    <textarea rows="20" cols="80" name="main_text"></textarea>
+    <button class="submit">Post</button>
+  </form>
+</body>
+</html>

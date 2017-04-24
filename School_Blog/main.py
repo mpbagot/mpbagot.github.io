@@ -10,6 +10,22 @@ def index_handler():
 	t = Topic.get_main_page()
 	return render_template('index.html', topics=t, topic1=t[0], topic2=t[1], topic3=t[2])
 
+@app.route('/add', methods=["POST","GET"])
+def add_post_handler():
+	form = request.form
+	if request.method == "POST":
+		pswd = form['pass']
+		if pswd != "RandomPassHere":
+			return render_template('add_post.html')
+		topic = form['topic']
+		date = form['date']
+		title = form['title']
+		text = form['main_text']
+		post = Log(text, title, "", int(topic), date=date)
+		post.add()
+		return index_handler()
+	return render_template('add_post.html')
+
 @app.route('/post/<post_id>')
 def post_handler(post_id):
 	post = Log.get(post_id)
