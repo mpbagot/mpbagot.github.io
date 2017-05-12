@@ -56,6 +56,14 @@ class Log:
         return None
 
     @staticmethod
+    def delete(id):
+        '''
+        Delete a post with a given id
+        '''
+        cur.execute('''DELETE FROM posts WHERE id = ?''', (id, ))
+        conn.commit()
+
+    @staticmethod
     def get_newest(tid):
         '''
         Get the newest post for a given topic
@@ -149,9 +157,6 @@ class Topic:
 
 
 if __name__ == "__main__":
-    t = Topic.get(3)
-    t.title = "Topic 3 - SDD"
-    t.subtitle = "PoultryGeist & Panda3D"
-    t.save()
+    t = Log.delete(35)
     pass
     # Add adjustments to anything here!
