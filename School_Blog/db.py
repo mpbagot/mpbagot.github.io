@@ -149,4 +149,9 @@ class Topic:
 
 
 if __name__ == "__main__":
+    t = Topic.get(3)
+    t.title = "Topic 3 - SDD"
+    t.subtitle = "PoultryGeist & Panda3D"
+    t.save()
+    pass
     # Add adjustments to anything here!
