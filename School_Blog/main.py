@@ -20,7 +20,7 @@ def add_post_handler():
 		topic = form['topic']
 		date = form['date']
 		title = form['title']
-		text = form['main_text']
+		text = form['main_text'].split('\r\n')
 		post = Log(text, title, "None", int(topic), date=date)
 		post.add()
 		return index_handler()
