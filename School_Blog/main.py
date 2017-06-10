@@ -19,10 +19,13 @@ def add_post_handler():
 			return render_template('add_post.html')
 		topic = form['topic']
 		date = form['date']
+		# print(date)
 		title = form['title']
 		text = form['main_text'].split('\r\n')
 		post = Log(text, title, "None", int(topic), date=date)
+		print(post.date)
 		post.add()
+		print(post.date)
 		return index_handler()
 	return render_template('add_post.html')
 

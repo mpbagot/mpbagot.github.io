@@ -26,13 +26,12 @@ class Log:
         '''
         Add the log to the 'posts' table
         '''
-        date = dt.now()
+        if self.date == None:
+            self.date = dt.now()
         cur.execute('''INSERT INTO posts (topicid, title, message, created, image) VALUES (?, ?, ?, ?, ?)''',
-                                            (self.topic, self.title, str(self.text), date, self.image))
+                                            (self.topic, self.title, str(self.text), self.date, self.image))
         conn.commit()
         self.id = cur.lastrowid
-        self.date = date
-        pass
 
     def save(self):
         '''
