@@ -10,6 +10,34 @@ def index_handler():
 	t = Topic.get_main_page()
 	return render_template('index.html', topics=t, topic1=t[0], topic2=t[1], topic3=t[2])
 
+@app.route('/delete', methods=['GET', 'POST'])
+def delete_post_handler():
+	if request.method == 'POST':
+		post_id = int(request.form['post_id'])
+		if request.form['pass'] == 'RandomPassHere':
+			post = Log.delete(post_id)
+			return render_template('delete.html', message='Post {} Deleted!'.format(post_id))
+		return render_template('delete.html', message='Wrong Password!')
+	return render_template('delete.html', message='')
+
+@app.route('/upload', methods=['GET', 'POST'])
+def upload_files_handler():
+	if request.method == 'POST':
+		if 'file' not in request.files:
+			return render_template('upload.html', message='Mitchell, you suck!')
+
+		file = request.files['file']
+		if file.filename == '':
+			return render_template('upload.html', message='no file chosen!')
+
+		if file and request.form['pass'] == 'RandomPassHere':
+			filepath = 'static/upload/'+file.filename
+			file.save(filepath)
+			return render_template('upload.html', message=('<p>File saved to: '+filepath))
+		elif file:
+			return render_template('upload.html', message='Incorrect Password!')
+	return render_template('upload.html', message='')
+
 @app.route('/add', methods=["POST","GET"])
 def add_post_handler():
 	form = request.form
