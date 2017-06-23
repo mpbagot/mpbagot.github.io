@@ -139,7 +139,7 @@ class Topic:
 
     @staticmethod
     def get_main_page():
-        cur.execute('''SELECT * FROM topics ORDER BY created''')
+        cur.execute('''SELECT * FROM topics ORDER BY created DESC''')
         topics = []
         i = 0
         for row in cur:
@@ -152,10 +152,14 @@ class Topic:
         for i in range(len(topics)):
             post = Log.get_newest(topics[i].id)
             topics[i].post = post
+        topics.reverse()
         return topics
 
 
 if __name__ == "__main__":
-    t = Log.delete(35)
-    pass
+#    t = Log.delete(35)
+#   t = Topic("Topic 2 - IPT", "Vector Graphics System")
+#   t.add() 
+#   print("Topic Added to database")
+   pass
     # Add adjustments to anything here!
