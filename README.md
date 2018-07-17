@@ -1,13 +1,6 @@
 # A multi-site repository!
 
-# CoolSteel Projects
-
-A simple Flask-Enabled website hosted at tick-it-media.tk:6657
-
-Houses a few WIP projects, written in HTML, JS and CSS.
-
-
-#Tick-It Social Media
+## Tick-It Social Media
 
 A revolutionary website which changes the face of social media forever.
 
@@ -17,6 +10,6 @@ Using our incredible state-of-the-art* keknology users will experience the lates
 
 *keknology not actually state of the art.
 
-# SDD and IPT Design Blog
+## SDD and IPT Design Blog
 
 A simple blog written with Flask. Used to hold all my blog posts for my school work in both Information Processes and Technology, and Software Design and Development.
