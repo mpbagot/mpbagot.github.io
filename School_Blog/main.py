@@ -73,4 +73,4 @@ def topic_handler(topic_id):
 	# print('content_handler', topic, posts[0].id)
 	return render_template('topic_template.html', title=topic.title+': '+topic.subtitle, posts=posts, topic=topic, topics=Topic.get_main_page())
 
-app.run(host='0.0.0.0', port=3030)#, threaded=True)
+app.run(host='0.0.0.0', port=3030, threaded=True)
