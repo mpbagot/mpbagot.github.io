@@ -30,6 +30,7 @@ table {
   margin: 4%;
   border: 1px solid lightgrey;
   border-radius: 25px;
+  overflow: hidden;
 }
 .topic a:hover {
   border-radius: 25px;
